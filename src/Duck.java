@@ -1,36 +1,30 @@
-public class Duck {
-    String name;
-    //How about
-    private FlyingBehavior flyingBehavior;
-    private QuackBehavior quackBehavior;
+public abstract class Duck {
+
+    FlyBehavior flyBehavior;
+    QuackBehavior quackBehavior;
 
     public Duck() {
     }
 
-    public Duck(String name, FlyingBehavior flyingBehavior, QuackBehavior quackBehavior) {
-        this.name = name;
-        this.flyingBehavior = flyingBehavior;
-        this.quackBehavior = quackBehavior;
+    public abstract void display();
+
+    public void performFly() {
+        flyBehavior.fly();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public FlyingBehavior getFlyingBehavior() {
-        return flyingBehavior;
-    }
-
-    public QuackBehavior getQuackBehavior() {
-        return quackBehavior;
-    }
-
-    public void dispaly() {
-        System.out.println("I'm a duck");
+    public void performQuack() {
+        quackBehavior.quack();
     }
 
     public void swim() {
-        System.out.println("I swim");
+        System.out.println("All ducks swims");
     }
 
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+
+    public void setQuackBehavior(QuackBehavior quackBehavior) {
+        this.quackBehavior = quackBehavior;
+    }
 }
